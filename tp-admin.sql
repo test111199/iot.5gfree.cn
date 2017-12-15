@@ -26,11 +26,11 @@
 DROP TABLE IF EXISTS `iot_auth_access`;
 
 CREATE TABLE `iot_auth_access` (
-  `role_id` mediumint(8) unsigned NOT NULL COMMENT ‘’角色’,
-  `rule_id` mediumint(8) unsigned NOT NULL COMMENT ‘’规则唯一英文标识,全小写’,
+  `role_id` mediumint(8) unsigned NOT NULL COMMENT ‘角色’,
+  `rule_id` mediumint(8) unsigned NOT NULL COMMENT ‘规则唯一英文标识,全小写’,
   KEY `role_id` (`role_id`),
   KEY `rule_name` (`rule_id`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘’权限授权表’;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘权限授权表’;
 
 LOCK TABLES `iot_auth_access` WRITE;
 /*!40000 ALTER TABLE `iot_auth_access` DISABLE KEYS */;
@@ -52,14 +52,14 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `iot_auth_rule`;
 
 CREATE TABLE `iot_auth_rule` (
-  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT ‘’规则id,自增主键’,
-  `title` varchar(20) NOT NULL DEFAULT ‘’’ COMMENT ‘’规则中文描述’,
-  `rule_val` varchar(255) NOT NULL DEFAULT ‘’’ COMMENT ‘’规则唯一英文标识,全小写’,
-  `pid` mediumint(8) unsigned NOT NULL DEFAULT ‘’0’ COMMENT ‘’父类ID’,
-  `update_time` int(11) DEFAULT NULL COMMENT ‘’账户最后更新时间’,
-  `delete_time` int(11) DEFAULT NULL COMMENT ‘’软删除’,
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT ‘规则id 自增主键’,
+  `title` varchar(20) NOT NULL DEFAULT ‘ ’ COMMENT ‘规则中文描述’,
+  `rule_val` varchar(255) NOT NULL DEFAULT ‘ ’ COMMENT ‘规则唯一英文标识 全小写’,
+  `pid` mediumint(8) unsigned NOT NULL DEFAULT ‘0’ COMMENT ‘父类ID’,
+  `update_time` int(11) DEFAULT NULL COMMENT ‘账户最后更新时间’,
+  `delete_time` int(11) DEFAULT NULL COMMENT ‘软删除’,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘’权限规则表’;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘权限规则表’;
 
 LOCK TABLES `iot_auth_rule` WRITE;
 /*!40000 ALTER TABLE `iot_auth_rule` DISABLE KEYS */;
@@ -92,7 +92,7 @@ CREATE TABLE `iot_log_record` (
   `create_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘’后台操作日志记录’;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘后台操作日志记录’;
 /*
 LOCK TABLES `iot_log_record` WRITE;
 /*!40000 ALTER TABLE `iot_log_record` DISABLE KEYS ;
@@ -191,16 +191,16 @@ DROP TABLE IF EXISTS `iot_role`;
 
 CREATE TABLE `iot_role` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) NOT NULL COMMENT ‘’角色名称’,
-  `pid` smallint(6) DEFAULT NULL COMMENT ‘’父角色ID’,
-  `status` tinyint(1) unsigned DEFAULT NULL COMMENT ‘’状态’,
+  `name` varchar(20) NOT NULL COMMENT ‘角色名称’,
+  `pid` smallint(6) DEFAULT NULL COMMENT ‘父角色ID’,
+  `status` tinyint(1) unsigned DEFAULT NULL COMMENT ‘状态’,
   `remark` varchar(255) DEFAULT NULL COMMENT ‘’备注’,
-  `create_time` int(11) unsigned NOT NULL DEFAULT ‘’0’ COMMENT ‘’创建时间’,
-  `update_time` int(11) unsigned NOT NULL DEFAULT ‘’0’ COMMENT ‘’更新时间’,
+  `create_time` int(11) unsigned NOT NULL DEFAULT ‘0’ COMMENT ‘创建时间’,
+  `update_time` int(11) unsigned NOT NULL DEFAULT ‘0’ COMMENT ‘更新时间’,
   PRIMARY KEY (`id`),
   KEY `parentId` (`pid`),
   KEY `status` (`status`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘’角色表’;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘角色表’;
 
 LOCK TABLES `iot_role` WRITE;
 /*!40000 ALTER TABLE `iot_role` DISABLE KEYS */;
@@ -221,17 +221,17 @@ DROP TABLE IF EXISTS `iot_user`;
 
 CREATE TABLE `iot_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(16) DEFAULT NULL COMMENT ‘’账号’,
-  `mobile` varchar(12) DEFAULT NULL COMMENT ‘’手机号’,
-  `password` varchar(32) DEFAULT NULL COMMENT ‘’密码’,
-  `status` int(11) DEFAULT ‘’0’ COMMENT ‘’状态 （0禁止 1可用）’,
-  `create_time` int(11) DEFAULT NULL COMMENT ‘’帐号创建时间’,
-  `administrator` int(1) DEFAULT ‘’0’ COMMENT ‘’是否超级管理员，1是 0否’,
-  `role_id` int(11) unsigned NOT NULL DEFAULT ‘’0’,
-  `update_time` int(11) DEFAULT NULL COMMENT ‘’账户最后更新时间’,
-  `delete_time` int(11) DEFAULT NULL COMMENT ‘’软删除’,
+  `username` varchar(16) DEFAULT NULL COMMENT ‘账号’,
+  `mobile` varchar(12) DEFAULT NULL COMMENT ‘手机号’,
+  `password` varchar(32) DEFAULT NULL COMMENT ‘密码’,
+  `status` int(11) DEFAULT ‘0’ COMMENT ‘’状态 （0禁止 1可用）’,
+  `create_time` int(11) DEFAULT NULL COMMENT ‘帐号创建时间’,
+  `administrator` int(1) DEFAULT ‘0’ COMMENT ‘是否超级管理员，1是 0否’,
+  `role_id` int(11) unsigned NOT NULL DEFAULT ‘0’,
+  `update_time` int(11) DEFAULT NULL COMMENT ‘账户最后更新时间’,
+  `delete_time` int(11) DEFAULT NULL COMMENT ‘软删除’,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘’用户表’;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT=‘用户表’;
 
 
 LOCK TABLES `iot_user` WRITE;

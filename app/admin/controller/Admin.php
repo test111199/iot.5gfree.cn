@@ -27,7 +27,7 @@ class Admin extends Common
 		//判断是否已经登录
 
 		if( !Session::has('userinfo', 'admin') ) {
-			$this->error('Please login first', url('index.php/admin/Login/index'));
+			$this->error('Please login first', url('admin/Login/index'));
 		}
 		$userRow = Session::get('userinfo', 'admin');
 		//验证权限
@@ -43,7 +43,7 @@ class Admin extends Common
 	public function goLogin()
 	{
 		Session::clear();
-		$this->redirect( url('admin/login/') );
+		$this->redirect( url('admin/login/index') );
 	}
 
 	public function checkRule($uid, $rule_val)

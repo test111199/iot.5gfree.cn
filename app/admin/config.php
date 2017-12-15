@@ -3,7 +3,7 @@
 return [
     //网站名称
     'website'   =>      [
-                            'name'          => 'Red-Team',
+                            'name'          => '2DP IoT',
                             'keywords'      =>  'TPAdmin,高性能，后台管理',
                             'description'   =>  'ThinkPHP5,高性能，后台管理，权限管理，后台模版，组件化开发，软删除，验证器，多语言，国际化'
                         ],
@@ -51,7 +51,7 @@ return [
         // SESSION_ID的提交变量,解决flash上传跨域
         'var_session_id' => '',
         // SESSION 前缀
-        'prefix'         => '',
+        'prefix'         => '2dp',
         // 驱动方式 支持redis memcache memcached
         'type'           => '',
         // 是否自动开启 SESSION

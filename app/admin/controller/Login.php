@@ -22,7 +22,7 @@ class Login extends Common
 	public function index()
 	{
 		if( Session::has('userinfo', 'admin') ) {
-			$this->redirect( url('admin/index/index') );
+			$this->redirect( url('index.php/admin/index/index') );
 		}
 		return view();
 	}
